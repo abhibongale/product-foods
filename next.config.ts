@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// Get repository name from environment or default to 'products-foods'
+// Get repository name from environment or default to 'product-foods'
 // For GitHub Pages project sites, the URL is: https://username.github.io/repository-name/
 const getBasePath = (): string => {
   if (process.env.GITHUB_PAGES !== 'true') {
@@ -25,12 +25,14 @@ const nextConfig: NextConfig = {
   output: process.env.GITHUB_PAGES === 'true' ? 'export' : undefined,
   // Set basePath for GitHub Pages (repository name)
   basePath: basePath,
-  // Set assetPrefix to match basePath for static assets
+  // assetPrefix must match basePath for static export to work with GitHub Pages
   assetPrefix: basePath,
   images: {
     // Disable image optimization for static export (required for GitHub Pages)
     unoptimized: process.env.GITHUB_PAGES === 'true',
   },
+  // Enable trailing slash for better compatibility with static hosting
+  trailingSlash: true,
   // Expose basePath to client-side code
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,

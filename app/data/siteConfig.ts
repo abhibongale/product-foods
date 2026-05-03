@@ -1,6 +1,12 @@
 // Centralized Site Configuration
 // Update all links, images, and site-wide settings here
 
+// Get basePath from environment (for GitHub Pages deployment)
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+// Helper function to add basePath to image paths
+const img = (path: string) => `${basePath}${path}`;
+
 export const siteConfig = {
   // Site Info
   siteName: "Cmaa Snacks",
@@ -28,31 +34,32 @@ export const siteConfig = {
   ],
 
   // Images - Hero Section
+  // Note: Using img() helper to add basePath for GitHub Pages deployment
   heroImages: {
     // Slide 1 - Chakli
-    chakliMain: "/chakli_clean.avif",
-    chakliLeft: "/chakli_clean.avif",
-    chakliRight: "/chakli_broken.avif",
-    chakliBottom: "/chakli_clean.avif",
+    chakliMain: img("/chakli_clean.avif"),
+    chakliLeft: img("/chakli_clean.avif"),
+    chakliRight: img("/chakli_broken.avif"),
+    chakliBottom: img("/chakli_clean.avif"),
 
     // Slide 2 - Chivda
-    chivdaMain: "/chivda_clean.avif",
-    chivdaLeft: "/chivda_clean.avif",
-    chivdaRight: "/chivda_clean.avif",
-    chivdaBottom: "/chivda_clean.avif",
+    chivdaMain: img("/chivda_clean.avif"),
+    chivdaLeft: img("/chivda_clean.avif"),
+    chivdaRight: img("/chivda_clean.avif"),
+    chivdaBottom: img("/chivda_clean.avif"),
 
     // Slide 3 - Add your third product images
-    slide3Main: "/chakli_clean.avif",
-    slide3Left: "/chakli_clean.avif",
-    slide3Right: "/chakli_clean.avif",
-    slide3Bottom: "/chakli_clean.avif",
+    slide3Main: img("/chakli_clean.avif"),
+    slide3Left: img("/chakli_clean.avif"),
+    slide3Right: img("/chakli_clean.avif"),
+    slide3Bottom: img("/chakli_clean.avif"),
   },
 
   // Other Images
   images: {
-    traditionalFaralProduct: "/placeholder.png", // Traditional Faral section image
-    aboutUsImage: "/placeholder.png", // About Us section image
-    logo: "/logo.png", // Site logo if you have one
+    traditionalFaralProduct: img("/placeholder.png"), // Traditional Faral section image
+    aboutUsImage: img("/placeholder.png"), // About Us section image
+    logo: img("/logo.png"), // Site logo if you have one
   },
 
   // Contact Info
