@@ -1,25 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
-
-// Unused fonts - kept for future use
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cmaa-foods",
-  description: "Authentic Puneeri Crunch, Delivered",
+  title: "Cmaa Snacks & Faral",
+  description: "Authentic Puneri Faral",
 };
 
 export default function RootLayout({
@@ -28,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-[#F5F0E8] text-[#4A4A4A]`}>
+    <html lang="en">
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>
