@@ -1,20 +1,20 @@
 import type { NextConfig } from "next";
 
-// Get repository name from environment or default to 'cmaa-foods'
+// Get repository name from environment or default to 'products-foods'
 // For GitHub Pages project sites, the URL is: https://username.github.io/repository-name/
 const getBasePath = (): string => {
   if (process.env.GITHUB_PAGES !== 'true') {
     return ''; // No basePath for non-GitHub Pages deployments
   }
-  
+
   // Try to get from GITHUB_REPOSITORY (format: owner/repo-name)
   if (process.env.GITHUB_REPOSITORY) {
     const repoName = process.env.GITHUB_REPOSITORY.split('/')[1];
     return `/${repoName}`;
   }
-  
+
   // Fallback to BASE_PATH env var or default
-  return process.env.BASE_PATH || '/cmaa-foods';
+  return process.env.BASE_PATH || '/product-foods';
 };
 
 const basePath = getBasePath();
